@@ -1,4 +1,13 @@
-import { Component, AfterViewChecked, NgZone, ElementRef } from '@angular/core';
+import { 
+    Component, 
+    AfterViewChecked, 
+    NgZone, 
+    ElementRef, 
+    ChangeDetectionStrategy, 
+    ChangeDetectorRef,
+    OnChanges,
+    Input
+} from '@angular/core';
 import { toggleClass } from './../toggleClass';
 
 @Component({
@@ -9,11 +18,24 @@ import { toggleClass } from './../toggleClass';
             <component-1></component-1>
             <component-2></component-2>
         </div>`,
-    styleUrls: [ 'app/child.components.css' ]
+    styleUrls: [ 'app/child.components.css' ],
+    changeDetection: ChangeDetectionStrategy.Default
 })
-export class Component0Component implements AfterViewChecked {
+export class Component0Component implements AfterViewChecked, OnChanges {
     
-    constructor(private zone: NgZone, private el: ElementRef) {}
+    @Input() enableChangeDetector: boolean;
+
+    constructor(private zone: NgZone, private el: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
+        changeDetectorRef.detach();
+    }
+
+    ngOnChanges () {
+        if (this.enableChangeDetector) {
+            this.changeDetectorRef.reattach();
+        } else {
+            this.changeDetectorRef.detach();
+        }
+    }
 
     ngAfterViewChecked () {
         toggleClass(this.el, this.zone);

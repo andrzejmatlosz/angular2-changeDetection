@@ -1,17 +1,18 @@
 import { Component, DoCheck, NgZone, ElementRef, ChangeDetectionStrategy } from '@angular/core';
-import { toggleClass } from './../toggleClass';
+import { Input } from '@angular/core';
+import { toggleClass } from './../toggleClass'; 
 
 @Component({
     selector: 'component-2',
     template: `
         <div class="child-component level-one component-2">
-            2{{someProperty}}
+            <span>2</span> {{someProperty}}
             <component-5></component-5>
             <component-6></component-6>
         </div>
         `,
     styleUrls: [ 'app/child.components.css' ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class Component2Component  implements DoCheck {
     

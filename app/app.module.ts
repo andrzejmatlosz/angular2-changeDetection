@@ -1,5 +1,6 @@
 
 import { NgModule }      from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,9 +16,12 @@ import { Component8Component } from './thirdLevelComponents/component8.component
 import { Component9Component } from './thirdLevelComponents/component9.component';
 import { Component10Component } from './thirdLevelComponents/component10.component';
 
+import { LoggerService } from './core/logger.service';
+import { UserService } from './core/user.service';
+
 @NgModule({
     imports: [ 
-        BrowserModule, 
+        BrowserModule, FormsModule
     ],
     declarations: [ 
         AppComponent,
@@ -33,6 +37,7 @@ import { Component10Component } from './thirdLevelComponents/component10.compone
         Component9Component,
         Component10Component,
     ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [ AppComponent ],
+    providers: [ LoggerService, UserService ]
 })
 export class AppModule { }
