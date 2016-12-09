@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, NgZone, ElementRef } from '@angular/core';
+import { Component, AfterViewChecked, NgZone, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { toggleClass } from './../toggleClass';
 
 @Component({
@@ -9,7 +9,8 @@ import { toggleClass } from './../toggleClass';
             <component-1></component-1>
             <component-2></component-2>
         </div>`,
-    styleUrls: [ 'app/child.components.css' ]
+    styleUrls: [ 'app/child.components.css' ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Component0Component implements AfterViewChecked {
     

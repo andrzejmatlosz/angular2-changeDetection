@@ -5,15 +5,13 @@ import { toggleClass } from './../toggleClass';
     selector: 'component-3',
     template: `
         <div class="child-component level-two component-3">
-            3{{innerInputProperty}}
+            3
             <component-7></component-7>
         </div>`,
     styleUrls: [ 'app/child.components.css' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Component3Component implements AfterViewChecked {
-    
-    @Input() public innerInputProperty:string;
 
     constructor(private zone: NgZone, private el: ElementRef) {}
 
