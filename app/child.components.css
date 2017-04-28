@@ -2,7 +2,8 @@
     position: absolute;
     text-align: center;
     font-size: 24px;
-    color: white;
+    color: black;
+    font-weight: bold;
     background: lightgrey;
     border: solid 3px darkgray;
     border-radius: 5px;
