@@ -1,4 +1,4 @@
-import { Component, DoCheck, NgZone, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, AfterViewChecked, NgZone, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { Input } from '@angular/core';
 import { toggleClass } from './../toggleClass'; 
 
@@ -14,7 +14,7 @@ import { toggleClass } from './../toggleClass';
     styleUrls: [ 'app/child.components.css' ],
     changeDetection: ChangeDetectionStrategy.Default
 })
-export class Component2Component  implements DoCheck {
+export class Component2Component  implements AfterViewChecked {
     
     public someProperty:string = 'a';
 
@@ -27,7 +27,7 @@ export class Component2Component  implements DoCheck {
         });
     }
 
-    ngDoCheck () {
+    ngAfterViewChecked () {
         toggleClass(this.el, this.zone);
     }
 
